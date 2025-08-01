@@ -1,6 +1,9 @@
 using System.Text;
+using Ecommerce.Application.Contracts.Infrastructure;
+using Ecommerce.Application.Models.ImageManagement;
 using Ecommerce.Domain;
 using Ecommerce.Infrastructure;
+using Ecommerce.Infrastructure.ImageCloudinary;
 using Ecommerce.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -67,6 +70,8 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

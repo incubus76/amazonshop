@@ -1,6 +1,10 @@
+using Ecommerce.Application.Contracts.Infrastructure;
+using Ecommerce.Application.Models.ImageManagement;
 using Ecommerce.Application.Models.Token;
 using Ecommerce.Application.Persistence;
 using Ecommerce.Domain;
+using Ecommerce.Infrastructure.ImageCloudinary;
+using Ecommerce.Infrastructure.MessageImplementation;
 using Ecommerce.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +23,12 @@ public static class InfrastructureServiceRegistration
         services.Configure<JwtSetting>(configuration.GetSection("jwtSettings"));
 
         // Add other necessary infrastructure services
+
+        // Register the Image Management Service
+        services.Configure<CloudinarySettings>(configuration.GetSection("CloudinarySettings"));
+        services.AddScoped<IManageImageService, ManageImageService>();
+
+        services.AddTransient<IEmailService, EmailService>();
 
         return services;
     }
