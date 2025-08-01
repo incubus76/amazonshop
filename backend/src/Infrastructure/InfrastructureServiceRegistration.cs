@@ -1,12 +1,12 @@
 using Ecommerce.Application.Models.Token;
 using Ecommerce.Application.Persistence;
 using Ecommerce.Domain;
-using Ecommerce.Persistence.Repositories;
+using Ecommerce.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Org.BouncyCastle.Asn1.X509.Qualified;
 
-namespace Ecommerce.Persistence;
+namespace Ecommerce.Infrastructure;
 
 public static class InfrastructureServiceRegistration
 {
