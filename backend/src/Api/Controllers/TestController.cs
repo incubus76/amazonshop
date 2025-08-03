@@ -1,5 +1,6 @@
 using Ecommerce.Application.Contracts.Infrastructure;
 using Ecommerce.Application.Models.Email;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace   Ecommerce.Api.Controllers;
@@ -15,6 +16,9 @@ public class TestController : ControllerBase
         _emailService = emailService;
     }
 
+
+    [AllowAnonymous]
+    [HttpGet]
     public async Task<IActionResult> SendTestEmail()
     {
         var emailMessage = new EmailMessage

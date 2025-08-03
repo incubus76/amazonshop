@@ -1,18 +1,19 @@
 using Ecommerce.Application.Contracts.Infrastructure;
 using Ecommerce.Application.Models.Email;
 using FluentEmail.Core;
+using Microsoft.Extensions.Options;
 
 namespace Ecommerce.Infrastructure.MessageImplementation;
 
 public class EmailService : IEmailService
 {
     private readonly IFluentEmail _fluentEmail;
-    private readonly EmailFluentSetting _emailSettings;
+    private readonly EmailFluentSettings _emailSettings;
 
-    public EmailService(IFluentEmail fluentEmail, EmailFluentSetting emailSettings)
+public EmailService(IFluentEmail fluentEmail, IOptions<EmailFluentSettings> emailSettings)
     {
         _fluentEmail = fluentEmail;
-        _emailSettings = emailSettings;
+        _emailSettings = emailSettings.Value;
     }
 
     public async Task<bool> SendEmailAsync(EmailMessage emailMessage, string token)

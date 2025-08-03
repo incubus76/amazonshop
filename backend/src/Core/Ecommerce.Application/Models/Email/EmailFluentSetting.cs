@@ -1,6 +1,6 @@
 namespace Ecommerce.Application.Models.Email;
 
-public class EmailFluentSetting
+public class EmailFluentSettings
 {
     public string? Email { get; set; }
     public string? Host { get; set; }
